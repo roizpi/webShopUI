@@ -1,22 +1,27 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Category } from '../model/category';
 import { Book } from '../model/book';
+import {CategoryService} from "../services/category.service";
 
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+  styleUrls: ['./menu.component.css'],
+  providers: [CategoryService]
 })
-export class MenuComponent {
-  // TODO: REST API - BBDD
-  CATEGORIES = [{'idCategory': 1, 'categoryName': 'Computing'},
-              {'idCategory': 2, 'categoryName': 'Novel'},
-              {'idCategory': 3, 'categoryName': 'Tourism'}];
-  categories: Category[] = this.CATEGORIES;
+export class MenuComponent implements OnInit {
+
+  categories: Category[];
   filter: Book = new Book();
   message: string = "";
   selectedCategory: Category = null;
+
+  constructor(private categoryService: CategoryService) {}
+
+  ngOnInit(): void {
+    this.categories = this.categoryService.getCategories();
+  }
 
   searchOnClick() {
     if ( this.filter.title !== '' && this.filter.title !== undefined) {
