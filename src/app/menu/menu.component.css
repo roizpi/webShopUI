@@ -1,0 +1,43 @@
+.category {
+  border: 1px solid #cccccc;
+  height: 300px;
+  margin: 10px;
+  border-radius: 10px;
+}
+.menu {
+  background-color: #00acc9;
+  margin: 10px;
+  padding: 10px;
+}
+.selected {
+    background-color: #CFD8DC !important;;
+    color: white;
+}
+.categories {
+  margin-left: -40px;
+  list-style-type: none;
+  min-width: 100px;
+}
+.categories li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 2.0em;
+  border-radius: 4px;
+}
+.categories li.selected:hover {
+  background-color: #BBD8DC !important;
+  color: white;
+}
+.categories li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+.categories .text {
+  position: relative;
+  top: -3px;
+}

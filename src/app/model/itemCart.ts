@@ -1,6 +1,6 @@
 import { Book } from './book';
 
-export class ItemBasket {
+export class ItemCart {
   units: number;
   book: Book;
 }

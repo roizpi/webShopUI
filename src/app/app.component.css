@@ -1,0 +1,21 @@
+.menu {
+  background-color: #00acc9;
+}
+.cover {
+  background-color: #accad9;
+}
+.header {
+  margin: 0px;
+  padding: 0px;
+}
+.footer {
+  background-color: #f0c0af;
+  margin-bottom: 20px;
+}
+.app {
+  text-align: center;
+  border-radius: 4px;
+  margin-top: 20px;
+  padding: 30px;
+  background: #fff;
+}

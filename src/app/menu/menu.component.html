@@ -1,0 +1,21 @@
+<div class="menu">
+  <form>
+    <div class="form-group">
+      <h2>Quick Search</h2>
+        <label for="title">Title/Book's author:</label>
+        <input class="form-control" [(ngModel)]="filter.title" id="title" name="title" placeholder="Introduce the text to search">
+    </div>
+    <div *ngIf="message" class="alert alert-warning" role="alert">
+      {{message}}
+    </div>
+    <button (click)="searchOnClick()" class="btn btn-primary">Search</button>
+  </form>
+  <div class="category">
+    <h2>Categories</h2>
+    <ul class="categories">
+      <li *ngFor="let category of categories" (click)="categoryOnClick(category)" [class.selected]="category === selectedCategory">
+        {{category.categoryName}}
+      </li>
+    </ul>
+  </div>
+</div>

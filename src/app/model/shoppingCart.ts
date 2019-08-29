@@ -1,9 +1,9 @@
-import { ItemBasket } from './itemBasket';
+import { ItemCart } from './itemCart';
 
-export class Basket {
+export class ShoppingCart {
   locator: string;
   status: string;
-  items: ItemBasket[];
+  items: ItemCart[];
   date: Date;
   totalUnits: number;
   totalPrice: number;
