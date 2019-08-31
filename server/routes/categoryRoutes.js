@@ -1,5 +1,5 @@
 const express = require('express'),
-  categoryRouter = express(),
+  categoryRouter = express.Router(),
   Category = require('../models/categoryModel');
 
 const routes = () => {

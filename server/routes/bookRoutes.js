@@ -29,9 +29,9 @@ const routes = () => {
         res.json({ data: book });
       else
         res.status(404).send('Book not found');
-    })
+    });
 
   return bookRouter;
 };
 
-module.expors = routes;
+module.exports = routes;

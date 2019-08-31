@@ -4,6 +4,7 @@ const express = require('express'),
 
 const routes = () => {
 
+  // API path: /api/orders
   orderRouter.route('/')
     .get((req, res) => {
 
@@ -36,6 +37,7 @@ const routes = () => {
     .delete((req, res) => {
       const order = Order.getOrderId(order.locator);
       if (order) {
+        Order.deleteOrder(order.locator);
         res.json({messages: [
           {code: 0, message: 'The order has been deleted: ' + req.params.idOrder}
         ]});
@@ -44,6 +46,7 @@ const routes = () => {
       }
     });
 
+  return orderRouter;
 };
 
 module.exports = routes;
