@@ -7,6 +7,8 @@ import {HeaderComponent} from "./header/header.component";
 import {MenuComponent} from "./menu/menu.component";
 import {FooterComponent} from "./footer/footer.component";
 import {CoverComponent} from "./cover/cover.component";
+import {HttpClientModule} from "@angular/common/http";
+import {CategoryService} from "./services/category.service";
 
 @NgModule({
   declarations: [
@@ -18,9 +20,10 @@ import {CoverComponent} from "./cover/cover.component";
   ],
   imports: [
     BrowserModule,
-    FormsModule // To use two-way binding with ngModel
+    FormsModule, // To use two-way binding with ngModel
+    HttpClientModule
   ],
-  providers: [],
+  providers: [CategoryService],
   bootstrap: [AppComponent],
   exports: []
 })
