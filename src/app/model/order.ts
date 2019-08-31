@@ -5,8 +5,8 @@ export class Order {
   locator: string;
   status: string;
   name: string;
-  secondname: string;
-  phone_number: string;
+  secondName: string;
+  phoneNumber: string;
   email: string;
   address: string;
   comment: string;
