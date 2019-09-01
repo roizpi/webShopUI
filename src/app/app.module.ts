@@ -9,6 +9,8 @@ import {FooterComponent} from "./footer/footer.component";
 import {CoverComponent} from "./cover/cover.component";
 import {HttpClientModule} from "@angular/common/http";
 import {CategoryService} from "./services/category.service";
+import {BookService} from "./services/book.service";
+import {CartService} from "./services/cart.service";
 
 @NgModule({
   declarations: [
@@ -23,7 +25,11 @@ import {CategoryService} from "./services/category.service";
     FormsModule, // To use two-way binding with ngModel
     HttpClientModule
   ],
-  providers: [CategoryService],
+  providers: [
+    CategoryService,
+    BookService,
+    CartService
+  ],
   bootstrap: [AppComponent],
   exports: []
 })
