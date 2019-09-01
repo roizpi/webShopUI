@@ -11,6 +11,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {CategoryService} from "./services/category.service";
 import {BookService} from "./services/book.service";
 import {CartService} from "./services/cart.service";
+import {OrderService} from "./services/order.service";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {CartService} from "./services/cart.service";
   providers: [
     CategoryService,
     BookService,
-    CartService
+    CartService,
+    OrderService
   ],
   bootstrap: [AppComponent],
   exports: []
