@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   appTitle = 'Main Title';
+
+  hideTitle(value: boolean) {
+    console.log('Hidden: ' + value);
+  }
 }

@@ -1,5 +1,6 @@
 <nav class="navbar navbar-light bg-light justify-content-between">
-  <h1>{{title}}</h1>
+  <h1 *ngIf="visible">{{title}}</h1>
+  <button (click)="click()">Show/Hide</button>
   <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="btnBasketOnClick()">View Shopping Cart
   <img src="../../assets/shopping_cart.png" width="50px;" alt="Shopping Cart" /></button>
 </nav>

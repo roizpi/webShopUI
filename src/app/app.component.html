@@ -1,7 +1,7 @@
 <div class="container app">
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 header">
-      <app-header [title]="appTitle"></app-header>
+      <app-header [title]="appTitle" (onHidden)="hideTitle($event)"></app-header>
       <p>Main content</p>
     </div>
   </div>
