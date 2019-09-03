@@ -12,6 +12,7 @@ import {CategoryService} from "./services/category.service";
 import {BookService} from "./services/book.service";
 import {CartService} from "./services/cart.service";
 import {OrderService} from "./services/order.service";
+import {CatalogueWrapperService} from "./services/catalogue-wrapper.service";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {OrderService} from "./services/order.service";
     CategoryService,
     BookService,
     CartService,
-    OrderService
+    OrderService,
+    CatalogueWrapperService
   ],
   bootstrap: [AppComponent],
   exports: []

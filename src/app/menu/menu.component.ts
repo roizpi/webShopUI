@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import { Category } from '../model/category';
 import { Book } from '../model/book';
 import {CategoryService} from "../services/category.service";
+import {Subject} from "rxjs";
+import {CatalogueWrapperService} from "../services/catalogue-wrapper.service";
 
 
 @Component({
@@ -17,7 +19,9 @@ export class MenuComponent implements OnInit {
   message: string = "";
   selectedCategory: Category = null;
 
-  constructor(private categoryService: CategoryService) {}
+  // Initializes the service instances via constructor for all components.
+  constructor(private categoryService: CategoryService,
+              private catalogueWrapperService: CatalogueWrapperService) {};
 
   ngOnInit(): void {
     this.getCategories();
@@ -35,7 +39,11 @@ export class MenuComponent implements OnInit {
     }
   }
 
+  /** Calls the service CatalogueWrapperService to get the books by category. Publishing the message to be transferred to the cover page.
+  * @param {Category} category The category that has been clicked on the front end */
   categoryOnClick(category: Category) {
     this.selectedCategory = category;
+    this.filter.title = ''; // Clears the filter by title/author if existent.
+    this.catalogueWrapperService.filterByCategoryToCatalogue(JSON.stringify(category))
   }
 }
