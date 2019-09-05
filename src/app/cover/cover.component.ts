@@ -12,11 +12,11 @@ export class CoverComponent implements OnInit {
   title = 'Welcome to Web-Shop';
   subscriptionFilterByCategory: Subscription;
 
-  constructor(private cataglogueEvents: CatalogueWrapperService) {};
+  constructor(private catalogueEvents: CatalogueWrapperService) {};
 
   /** @Override */
   ngOnInit(): void {
-    this.subscriptionFilterByCategory = this.cataglogueEvents.filterByCategoryToCatalogue$.subscribe(
+    this.subscriptionFilterByCategory = this.catalogueEvents.filterByCategoryToCatalogue$.subscribe(
       item => {
         alert(item);
     })
