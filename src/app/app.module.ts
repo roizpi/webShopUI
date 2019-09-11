@@ -13,6 +13,7 @@ import {BookService} from "./services/book.service";
 import {CartService} from "./services/cart.service";
 import {OrderService} from "./services/order.service";
 import {CatalogueWrapperService} from "./services/catalogue-wrapper.service";
+import {CatalogComponent} from "./cover/catalog.component";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {CatalogueWrapperService} from "./services/catalogue-wrapper.service";
     HeaderComponent,
     MenuComponent,
     FooterComponent,
-    CoverComponent
+    CoverComponent,
+    CatalogComponent
   ],
   imports: [
     BrowserModule,
