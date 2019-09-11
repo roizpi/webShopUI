@@ -1,3 +1,10 @@
 <div class="cover">
-  <h1>{{title}}</h1>
+  <div *ngIf="!mode">
+    <h1>{{title}}</h1>
+  </div>
+  <div *ngIf="mode === 'list'">
+    <app-catalog [books]="books"
+                 [filter]="filter"
+                 [filterValue]="filterValue"></app-catalog>
+  </div>
 </div>
