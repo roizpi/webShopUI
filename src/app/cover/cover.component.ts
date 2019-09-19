@@ -14,6 +14,7 @@ export class CoverComponent implements OnInit {
 
   title = 'Welcome to Web-Shop';
   subscriptionFilterByCategory: Subscription;
+  subscriptionFilterByTitleAuthor: Subscription;
 
   // Books catalog vars.
   books: Book[] = [];
@@ -40,6 +41,19 @@ export class CoverComponent implements OnInit {
         this.bookService.getBooksCategory(category.idCategory)
           .then(list => this.books = list)
           .catch(error => {this.books = []});
-    })
-  };
+      }
+    );
+
+    this.subscriptionFilterByTitleAuthor = this.catalogueEvents.filterByTitleAuthorToCatalogue$.subscribe(
+
+      item => {
+        this.mode = "list";
+        this.filter = "title/author";
+        this.filterValue = item;
+        this.bookService.getBooksFilter(item)
+          .then(list => this.books = list)
+          .catch(error => this.books = [])
+      }
+    );
+  }
 }

@@ -15,6 +15,7 @@ import {CatalogueWrapperService} from "../services/catalogue-wrapper.service";
 export class MenuComponent implements OnInit {
 
   categories: Category[];
+  // item: Data introduced by the user
   filter: Book = new Book();
   message: string = "";
   selectedCategory: Category = null;
@@ -31,11 +32,16 @@ export class MenuComponent implements OnInit {
       categories => this.categories = categories); // Asynchronous call-back function.
   }
 
+  /*
+  * Calls the Category service method when user clicks the search button.
+   */
   searchOnClick() {
     if ( this.filter.title !== '' && this.filter.title !== undefined) {
+      this.catalogueWrapperService.filterByTitleAuthorToCatalogue(this.filter.title);
       this.message = "";
+      this.selectedCategory = null;
     } else {
-      this.message = "Value to search"
+      this.message = "Introduce the value to search"
     }
   }
 
