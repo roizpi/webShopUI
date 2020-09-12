@@ -5,6 +5,14 @@
   <div *ngIf="mode === 'list'">
     <app-catalog [books]="books"
                  [filter]="filter"
-                 [filterValue]="filterValue"></app-catalog>
+                 [filterValue]="filterValue"
+                 (selectBook)="onSelectBook($event)">
+    </app-catalog>
+  </div>
+  <div *ngIf="mode === 'detail'">
+    <app-detail [book]="selectBook"
+                (onReturn)="returnToList()"
+                (onAddCart)="addToCart()">
+    </app-detail>
   </div>
 </div>

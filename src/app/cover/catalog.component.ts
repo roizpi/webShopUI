@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Book } from '../model/book';
 
 @Component({
@@ -10,4 +10,9 @@ export class CatalogComponent {
    @Input() books: Book[];
    @Input() filter: string;
    @Input() filterValue: string;
+   @Output() selectBook = new EventEmitter<Book>();
+
+   btDetailOnClick(book: Book) {
+     this.selectBook.emit(book);
+   }
 }

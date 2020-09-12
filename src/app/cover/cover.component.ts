@@ -21,6 +21,8 @@ export class CoverComponent implements OnInit {
   mode: string = "";
   filterValue: string = "";
   filter: string = "";
+  selectBook: Book;
+  previousMode: string = "";
 
   constructor(private catalogueEvents: CatalogueWrapperService,
               private bookService: BookService) {};
@@ -55,5 +57,17 @@ export class CoverComponent implements OnInit {
           .catch(error => this.books = [])
       }
     );
+  }
+
+  onSelectBook(book: Book) {
+    this.previousMode = this.mode;
+    this.mode = 'detail';
+    this.selectBook = book;
+  }
+  returnToList() {
+    this.mode = this.previousMode;
+  }
+  addToCart() {
+
   }
 }

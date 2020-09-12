@@ -8,6 +8,7 @@
       <th>Title</th>
       <th>Author</th>
       <th>Price</th>
+      <th>Action</th>
     </tr>
     </thead>
     <tbody>
@@ -15,6 +16,9 @@
       <td>{{book.title}}</td>
       <td>{{book.author}}</td>
       <td style="text-align: right">{{book.price | currency:'EUR':'symbol'}}</td>
+      <td>
+        <button type="button" (click)="btDetailOnClick(book)" class="btn btn-outline-primary">Detail</button>
+      </td>
     </tr>
     </tbody>
   </table>
