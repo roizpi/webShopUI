@@ -35,7 +35,7 @@ const routes = () => {
       }
     })
     .delete((req, res) => {
-      const order = Order.getOrderId(order.locator);
+      const order = Order.getOrderId(+req.params.idOrder);
       if (order) {
         Order.deleteOrder(order.locator);
         res.json({messages: [

@@ -38,7 +38,7 @@ const getBook = (idBook) => BOOKS.find((book) => book.idBook === idBook);
 
 // Method to obtain a list of books with a name and author filters.
 const getBookByTitleAuthor = (value) =>
-  BOOK.filter((book) => book.title.indexOf(value) >= 0 || book.author.indexOf(value) >= 0);
+  BOOKS.filter((book) => book.title.indexOf(value) >= 0 || book.author.indexOf(value) >= 0);
 
 // Returns an object with all the defined methods.
 module.exports = {

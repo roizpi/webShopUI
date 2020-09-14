@@ -25,7 +25,7 @@ const updateOrderStatus = (locator, status) => {
 // Method to delete an order
 const deleteOrder = (locator) => {
   const itemIndex = ORDERS.findIndex((p) => p.locator === locator);
-  if (itemsIndex > -1)
+  if (itemIndex > -1)
     ORDERS.splice(itemIndex, 1);
 };
 

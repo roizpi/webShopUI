@@ -30,7 +30,7 @@ const modifyCart = (locator, book, units) => {
   const cart = getCart(locator);
 
   if (cart) {
-    let item = cartr.items.find(item => item.book.idBook === book.idBook);
+    let item = cart.items.find(item => item.book.idBook === book.idBook);
     if (units > 0) {
       if (item) {
         item.units = units;
