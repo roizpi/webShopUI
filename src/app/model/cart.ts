@@ -1,6 +1,6 @@
 import { ItemCart } from './itemCart';
 
-export class ShoppingCart {
+export class Cart {
   locator: string;
   status: string;
   items: ItemCart[];

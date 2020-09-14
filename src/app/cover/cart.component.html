@@ -1,0 +1,42 @@
+<h2>Cart</h2>
+<br/>
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Price</th>
+      <th>Amount</th>
+      <th>Subtotal</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody *ngIf="cart">
+      <tr *ngFor="let item of cart.items">
+        <td style="text-align: center">
+          <a href="#"
+             (click)="viewDetail(item.book);$event.preventDefault();$event.stopPropagation();">
+            {{item.book.title}}</a>
+        </td>
+        <td style="text-align: center">{{item.book.author}}</td>
+        <td style="text-align: right">{{item.book.price | currency:'EUR':'symbol'}}</td>
+        <td style="text-align: right">{{item.units}}</td>
+        <td style="text-align: right">{{item.units * item.book.price | currency:'EUR':'symbol'}}</td>
+        <td>
+          <button type="button" (click)="addToCart(item)"
+                  class="btn btn-outline-primary">+</button>
+          <button type="button" (click)="removeFromCart(item)"
+                  class="btn btn-outline-primary">Remove</button>
+        </td>
+      </tr>
+      <tr class="table-dark">
+        <td colspan="3"></td>
+        <td style="text-align: right"><b>{{cart.totalUnits}}</b></td>
+        <td style="text-align: right"><b>{{cart.totalPrice | currency:'EUR':'symbol'}}</b></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<button *ngIf="cart.totalUnits > 0" (click)="btBuyOnClick()">Buy</button>

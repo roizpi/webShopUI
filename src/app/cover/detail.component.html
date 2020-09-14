@@ -1,6 +1,6 @@
 <div class="card" style="margin-top: 20px; ">
   <img class="card-img-top"
-      src="{{book.photo}}"
+      src="{{book.img}}"
       alt="Card image cap">
   <div class="card-body">
     <h4 class="card-title">{{book.title}}</h4>
@@ -22,6 +22,6 @@
     <a href="#"
        (click)="returnToList(); $event.preventDefault(); $event.stopPropagation();" class="card-link">Return</a>
     <a href="#"
-       (click)="addToCart(book); $event.preventDefault(); $event.stopPropagation();" class="card-link">Add to cart</a>
+       (click)="addToCart(); $event.preventDefault(); $event.stopPropagation();" class="card-link">Add to cart</a>
   </div>
 </div>

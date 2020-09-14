@@ -18,6 +18,7 @@
       <td style="text-align: right">{{book.price | currency:'EUR':'symbol'}}</td>
       <td>
         <button type="button" (click)="btDetailOnClick(book)" class="btn btn-outline-primary">Detail</button>
+        <button type="button" (click)="addBookFromCatalog(book)" class="btn btn-outline-primary">+</button>
       </td>
     </tr>
     </tbody>

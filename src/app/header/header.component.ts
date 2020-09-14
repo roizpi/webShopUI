@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {CartWrapperService} from "../services/cart-wrapper.service";
 
 @Component({
   selector: 'app-header',
@@ -6,12 +7,13 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  @Input()
-  private title: string;
+  @Input() title: string;
 
   @Output()
   onHidden = new EventEmitter<boolean>();
   visible = true;
+
+  constructor (private cartWrapperService: CartWrapperService) {}
 
   click() {
     this.visible = !this.visible;
@@ -19,6 +21,6 @@ export class HeaderComponent {
   }
 
   btnBasketOnClick() {
-
+    this.cartWrapperService.showCart();
   }
 }

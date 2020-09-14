@@ -8,13 +8,12 @@ import { Book } from '../model/book';
 export class DetailComponent {
   @Input() book: Book;
   @Output() onReturn = new EventEmitter();
-  @Output() onAddCart = new EventEmitter();
+  @Output() onAddToCart = new EventEmitter<Book>();
 
   returnToList() {
     this.onReturn.emit();
   }
-  addToCart(book: Book) {
-    this.book = book;
-    this.onAddCart.emit(book);
+  addToCart() {
+    this.onAddToCart.emit(this.book);
   }
 }

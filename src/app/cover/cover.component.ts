@@ -4,6 +4,10 @@ import {CatalogueWrapperService} from "../services/catalogue-wrapper.service";
 import {BookService} from "../services/book.service";
 import {Book} from "../model/book";
 import {Category} from "../model/category";
+import {CartWrapperService} from "../services/cart-wrapper.service";
+import {CartService} from "../services/cart.service";
+import {ItemCart} from "../model/itemCart";
+import {Cart} from "../model/cart";
 
 @Component({
   selector: 'app-cover',
@@ -15,6 +19,7 @@ export class CoverComponent implements OnInit {
   title = 'Welcome to Web-Shop';
   subscriptionFilterByCategory: Subscription;
   subscriptionFilterByTitleAuthor: Subscription;
+  subscriptionViewCart: Subscription;
 
   // Books catalog vars.
   books: Book[] = [];
@@ -23,9 +28,12 @@ export class CoverComponent implements OnInit {
   filter: string = "";
   selectBook: Book;
   previousMode: string = "";
+  cart: Cart = null;
 
   constructor(private catalogueEvents: CatalogueWrapperService,
-              private bookService: BookService) {};
+              private bookService: BookService,
+              private cartEvents: CartWrapperService,
+              private cartService: CartService) {};
 
   /** @Override */
   ngOnInit(): void {
@@ -57,6 +65,29 @@ export class CoverComponent implements OnInit {
           .catch(error => this.books = [])
       }
     );
+
+    this.subscriptionViewCart = this.cartEvents.showCart$.subscribe(
+      item => {
+        this.mode = "cart";
+
+        // Check whether a cart already exists
+        if (this.cart === null) {
+          this.cartService.createCart()
+            .then(cart => {
+              this.cart = cart;
+              this.cartService.calcTotal(this.cart);
+            })
+        } else {
+          // If exists we get the content from the server
+          this.cartService.getCart(this.cart.locator)
+            .then(cart => {
+              this.cart = cart;
+              this.cartService.calcTotal(this.cart);
+            })
+            .catch(error => {this.cart = new Cart();})
+        }
+      }
+    );
   }
 
   onSelectBook(book: Book) {
@@ -64,10 +95,50 @@ export class CoverComponent implements OnInit {
     this.mode = 'detail';
     this.selectBook = book;
   }
+
+  onAddToCart(book: Book) {
+    // Activate the view to show the cart
+    this.mode = "cart";
+
+    // Check whether a cart already exists
+    if (this.cart === null) {
+      this.cartService.createCart()
+        .then(cart => {
+          this.cart = cart;
+          this.cart.totalPrice = 0;
+          this.cart.totalUnits = 0;
+          this.addToCart(book);
+        });
+    } else {
+      this.addToCart(book);
+    }
+  }
+
   returnToList() {
     this.mode = this.previousMode;
   }
-  addToCart() {
 
+  private addToCart(book: Book) {
+    let item: ItemCart = null;
+
+    if (this.cart != null && this.cart.items !== null) {
+      item = this.cart.items.find(
+        item => item.book.idBook === book.idBook);
+    }
+    if (item === null || !item) {
+      item = new ItemCart();
+      item.book = book;
+      item.units = 1;
+    } else {
+      item.units++;
+    }
+
+    // Sync with the server data
+    this.cartService.addItemCart(this.cart.locator, item).then(
+      response => {
+        this.cart = response;
+        this.cartService.calcTotal(this.cart);
+      }
+    );
   }
 }

@@ -11,8 +11,13 @@ export class CatalogComponent {
    @Input() filter: string;
    @Input() filterValue: string;
    @Output() selectBook = new EventEmitter<Book>();
+   @Output() onAddBook = new EventEmitter<Book>();
 
    btDetailOnClick(book: Book) {
      this.selectBook.emit(book);
+   }
+
+   addBookFromCatalog(book: Book) {
+     this.onAddBook.emit(book);
    }
 }

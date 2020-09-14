@@ -6,13 +6,20 @@
     <app-catalog [books]="books"
                  [filter]="filter"
                  [filterValue]="filterValue"
-                 (selectBook)="onSelectBook($event)">
+                 (selectBook)="onSelectBook($event)"
+                 (onAddBook)="onAddToCart($event)">
     </app-catalog>
   </div>
   <div *ngIf="mode === 'detail'">
     <app-detail [book]="selectBook"
                 (onReturn)="returnToList()"
-                (onAddCart)="addToCart()">
+                (onAddToCart)="onAddToCart($event)">
     </app-detail>
+  </div>
+  <div *ngIf="mode === 'cart'">
+    <app-cart [cart]="cart"
+              (onBookSelect)="onSelectBook($event)"
+              (onBuy)="onBuy($event)">
+    </app-cart>
   </div>
 </div>
