@@ -22,4 +22,14 @@
               (onBuy)="onBuy($event)">
     </app-cart>
   </div>
+  <div *ngIf="mode === 'checkout'">
+    <app-checkout [order]="order"
+                  [cart]="cart"
+                  (onCart)="returnToCart($event)"
+                  (onOrderSummary)="onOrderSummary($event)">
+    </app-checkout>
+  </div>
+  <div *ngIf="mode === 'summary'">
+    <app-summary [order]="order"></app-summary>
+  </div>
 </div>

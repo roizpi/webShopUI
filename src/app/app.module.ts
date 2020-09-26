@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 import { AppComponent } from './app.component';
 import {HeaderComponent} from "./header/header.component";
@@ -17,6 +17,8 @@ import {CatalogComponent} from "./cover/catalog.component";
 import {DetailComponent} from "./cover/detail.component";
 import {CartComponent} from "./cover/cart.component";
 import {CartWrapperService} from "./services/cart-wrapper.service";
+import {SummaryComponent} from "./cover/summary.component";
+import {CheckoutComponent} from "./cover/checkout.component";
 
 @NgModule({
   declarations: [
@@ -27,12 +29,15 @@ import {CartWrapperService} from "./services/cart-wrapper.service";
     CoverComponent,
     CatalogComponent,
     DetailComponent,
-    CartComponent
+    CartComponent,
+    CheckoutComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,
     FormsModule, // To use two-way binding with ngModel
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     CategoryService,

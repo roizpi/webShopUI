@@ -8,6 +8,7 @@ import {CartWrapperService} from "../services/cart-wrapper.service";
 import {CartService} from "../services/cart.service";
 import {ItemCart} from "../model/itemCart";
 import {Cart} from "../model/cart";
+import {Order} from "../model/order";
 
 @Component({
   selector: 'app-cover',
@@ -29,6 +30,7 @@ export class CoverComponent implements OnInit {
   selectBook: Book;
   previousMode: string = "";
   cart: Cart = null;
+  order: Order = new Order();
 
   constructor(private catalogueEvents: CatalogueWrapperService,
               private bookService: BookService,
@@ -141,4 +143,25 @@ export class CoverComponent implements OnInit {
       }
     );
   }
+
+  // Changes the value of mode to show the new view
+  onBuy() {
+    this.mode = "checkout";
+  }
+
+  returnToCart() {
+    this.cartService.getCart(this.cart.locator)
+      .then(response => {
+        this.cart = response;
+        this.cartService.calcTotal(this.cart);
+        this.mode = 'cart';
+      })
+  }
+
+  onOrderSummary(order: Order) {
+    this.cart = null;
+    this.order = order;
+    this.mode = 'summary';
+  }
+
 }

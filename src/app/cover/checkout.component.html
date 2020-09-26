@@ -1,0 +1,61 @@
+<h2>Checkout</h2>
+<br/>
+<form [formGroup]="orderForm" (ngSubmit)="processOrder()">
+
+  <div class="form-group row">
+    <label for="name" class="control-label col-sm-3">Name:</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" id="name" formControlName="name" placeholder="Introduce your name"/>
+    </div>
+    <em *ngIf="name.invalid && name?.errors.required">Name is mandatory.</em>
+  </div>
+
+  <div class="form-group row">
+    <label for="secondName" class="control-label col-sm-3">Second name:</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" id="secondName" formControlName="secondName" placeholder="Introduce your second name"/>
+      <em *ngIf="secondName.invalid && secondName?.errors.required">Second name is mandatory.</em>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="phoneNumber" class="control-label col-sm-3">Phone number:</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber" placeholder="Introduce your phone number"/>
+      <em *ngIf="phoneNumber.invalid && phoneNumber?.errors.required">Phone number is mandatory.</em>
+      <em *ngIf="phoneNumber.invalid && phoneNumber?.errors.pattern">Phone number format is not valid.</em>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="email" class="control-label col-sm-3">Email:</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" id="email" formControlName="email" placeholder="Introduce your email address"/>
+      <em *ngIf="email.invalid && email?.errors.required">Second name is mandatory.</em>
+      <em *ngIf="email.invalid && email?.errors.email">Email format is not valid.</em>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="address" class="control-label col-sm-3">Address:</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" id="address" formControlName="address" placeholder="Introduce your home address"/>
+      <em *ngIf="address.invalid && address?.errors.required">Home addess is mandatory.</em>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="comment" class="control-label col-sm-4">Comment:</label>
+    <div class="col-sm-8">
+      <textarea class="form-control" id="comment" formControlName="comment" rows="3"></textarea>
+      <em *ngIf="comment.invalid && comment?.errors.required">Introduce a shorter comment.</em>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-10 col-sm-offset-2">
+      <button type="submit" class="btn btn-success" [disabled]="!orderForm.valid">Confirm</button>
+      <button type="button" class="btn btn-warning" (click)="btCartOnClick()">Return to the cart</button>
+    </div>
+  </div>
+</form>
