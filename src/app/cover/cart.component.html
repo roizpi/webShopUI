@@ -22,7 +22,7 @@
         <td style="text-align: center">{{item.book.author}}</td>
         <td style="text-align: right">{{item.book.price | currency:'EUR':'symbol'}}</td>
         <td style="text-align: right">{{item.units}}</td>
-        <td style="text-align: right">{{item.units * item.book.price | currency:'EUR':'symbol'}}</td>
+        <td style="text-align: right">{{item | priceItem | currency:'EUR':'symbol'}}</td>
         <td>
           <button type="button" (click)="addToCart(item)"
                   class="btn btn-outline-primary">+</button>
@@ -33,7 +33,7 @@
       <tr class="table-dark">
         <td colspan="3"></td>
         <td style="text-align: right"><b>{{cart.totalUnits}}</b></td>
-        <td style="text-align: right"><b>{{cart.totalPrice | currency:'EUR':'symbol'}}</b></td>
+        <td style="text-align: right"><b>{{cart | totalCart | currency:'EUR':'symbol'}}</b></td>
         <td></td>
       </tr>
     </tbody>

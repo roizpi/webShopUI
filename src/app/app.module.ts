@@ -25,6 +25,8 @@ import {AdministratorComponent} from "./admin/administrator.component";
 import {BooksComponent} from "./admin/books.component";
 import {OrdersComponent} from "./admin/orders.component";
 import {OrderDetailComponent} from "./admin/order-detail.component";
+import {TotalCartPipe} from "./pipes/total-cart.pipe";
+import {PriceItemPipe} from "./pipes/price-item.pipe";
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import {OrderDetailComponent} from "./admin/order-detail.component";
     AdministratorComponent,
     BooksComponent,
     OrdersComponent,
-    OrderDetailComponent
+    OrderDetailComponent,
+    TotalCartPipe,
+    PriceItemPipe
   ],
   imports: [
     BrowserModule,
