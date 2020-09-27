@@ -19,6 +19,12 @@ import {CartComponent} from "./cover/cart.component";
 import {CartWrapperService} from "./services/cart-wrapper.service";
 import {SummaryComponent} from "./cover/summary.component";
 import {CheckoutComponent} from "./cover/checkout.component";
+import {ShopComponent} from "./shop/shop.component";
+import {AppRoutingModule} from "./app-routing.module";
+import {AdministratorComponent} from "./admin/administrator.component";
+import {BooksComponent} from "./admin/books.component";
+import {OrdersComponent} from "./admin/orders.component";
+import {OrderDetailComponent} from "./admin/order-detail.component";
 
 @NgModule({
   declarations: [
@@ -31,13 +37,19 @@ import {CheckoutComponent} from "./cover/checkout.component";
     DetailComponent,
     CartComponent,
     CheckoutComponent,
-    SummaryComponent
+    SummaryComponent,
+    ShopComponent,
+    AdministratorComponent,
+    BooksComponent,
+    OrdersComponent,
+    OrderDetailComponent
   ],
   imports: [
     BrowserModule,
     FormsModule, // To use two-way binding with ngModel
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [
     CategoryService,

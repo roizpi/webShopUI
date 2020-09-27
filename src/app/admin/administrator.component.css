@@ -1,0 +1,17 @@
+.appAdmin {
+  text-align: center;
+  border-radius: 4px;
+  margin-top: 20px;
+  padding: 30px;
+  background: #fff;
+}
+
+.tabAdmin {
+  background-color: #00bcd9;
+}
+
+.contentTab {
+  background-color: #9cac99;
+  padding: 10px;
+}
+

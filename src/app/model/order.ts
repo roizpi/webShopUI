@@ -4,6 +4,7 @@ export class Order {
   idOrder: number;
   locator: string;
   status: string;
+  date: Date;
   name: string;
   secondName: string;
   phoneNumber: string;

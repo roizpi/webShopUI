@@ -1,22 +1,6 @@
-<div class="container app">
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 header">
-      <app-header [title]="appTitle" (onHidden)="hideTitle($event)"></app-header>
-      <p>Main content</p>
-    </div>
-  </div>
-  <div class="row" style="padding: 0px">
-    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 vcenter menu">
-      <app-menu></app-menu>
-    </div>
-    <div class="col-xs-6 col-sm-6 col-md-8 col-lg-8 align-items-center justify-content-center cover">
-      <app-cover></app-cover>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 header">
-      <app-footer></app-footer>
-    </div>
-  </div>
+<div style="text-align: center">
+  <h1>{{title}}</h1>
+  <a routerLink="/shop">Online Shop</a>
+  &nbsp;<a routerLink="/administrator">Administrator</a>
 </div>
-
+<router-outlet></router-outlet>

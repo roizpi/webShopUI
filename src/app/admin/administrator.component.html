@@ -1,0 +1,20 @@
+<div class="container appAdmin">
+  <div class="row" style="padding: 0px">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 vcenter tabAdmin">
+      <h1>{{title}}</h1>
+
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link" role="tab" data-toggle="tab" routerLink="books" routerLinkActive="active">Books</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" role="tab" data-toggle="tab" routerLink="orders" routerLinkActive="active">Orders</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row contentTab">
+    <router-outlet></router-outlet>
+  </div>
+  <app-footer></app-footer>
+</div>

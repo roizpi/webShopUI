@@ -1,0 +1,26 @@
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
+    <tr>
+      <th style="text-align: center">Id</th>
+      <th style="text-align: center">Category</th>
+      <th style="text-align: center">Title</th>
+      <th style="text-align: center">Isbn</th>
+      <th style="text-align: center">Description</th>
+      <th style="text-align: center">Author</th>
+      <th style="text-align: center">Price</th>
+    </tr>
+    </thead>
+    <tbody *ngIf="books">
+    <tr *ngFor="let item of books">
+      <td style="text-align: center">{{item.idBook}}</td>
+      <td style="text-align: center">{{item.category.categoryName}}</td>
+      <td style="text-align: center">{{item.title}}</td>
+      <td style="text-align: center">{{item.isbn}}</td>
+      <td style="text-align: center">{{item.description}}</td>
+      <td style="text-align: center">{{item.author}}</td>
+      <td style="text-align: center">{{item.price | currency:'EUR':'symbol'}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

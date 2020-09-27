@@ -1,0 +1,27 @@
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
+    <tr>
+      <th style="text-align: center">Locator</th>
+      <th style="text-align: center">Date</th>
+      <th style="text-align: center">Customer</th>
+      <th style="text-align: center">E-mail</th>
+      <th style="text-align: center">Phone</th>
+      <th style="text-align: center">Status</th>
+      <th style="text-align: center">Action</th>
+    </tr>
+    </thead>
+    <tbody *ngIf="orders">
+    <tr *ngFor="let item of orders">
+      <td style="text-align: center"><a [routerLink]="item.idOrder">{{item.locator}}</a> </td>
+      <td style="text-align: center">{{item.date}}</td>
+      <td style="text-align: center">{{item.name}} {{item.secondName}}</td>
+      <td style="text-align: center">{{item.email}}</td>
+      <td style="text-align: center">{{item.phoneNumber}}</td>
+      <td style="text-align: center">{{item.status}}</td>
+      <td><button type="button" (click)="btRemoveOnClick(item)" class="btn btn-outline-primary">Remove</button></td>
+    </tr>
+    </tbody>
+  </table>
+  <div *ngIf="message" class="alert alert-warning" role="alert">{{message}}</div>
+</div>

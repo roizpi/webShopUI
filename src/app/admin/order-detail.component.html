@@ -1,0 +1,66 @@
+<h2>{{title}}</h2>
+<br/>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 table-responsive">
+    <table class="table table-striped table-hover">
+      <thead>
+      <tr>
+        <th style="text-align: center">Title</th>
+        <th style="text-align: center">Pcs</th>
+        <th style="text-align: center">Price</th>
+        <th style="text-align: center">Total</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of order.items">
+        <td>{{item.title}}</td>
+        <td>{{item.units}}</td>
+        <td>{{item.price | currency:'EUR':'symbol'}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <h4 class="card-title">{{order.locator}}</h4>
+    <p class="card-text">{{order.date}}</p>
+    <table class="table">
+      <tr>
+        <td><label for="status">Status:</label></td>
+        <td><select class="form-control" id="status" name="status" [(ngModel)]="order.status">
+          <option *ngFor="let item of status" [ngValue]="item">{{item}}</option>
+        </select></td>
+      </tr>
+      <tr>
+        <td><label>Customer:</label></td>
+        <td><b>{{order.name}} {{order.secondName}}</b></td>
+      </tr>
+      <tr>
+        <td><label>E-mail:</label></td>
+        <td><b>{{order.email}}</b></td>
+      </tr>
+      <tr>
+        <td><label>Phone Number:</label></td>
+        <td><b>{{order.phoneNumber}}</b></td>
+      </tr>
+      <tr>
+        <td><label>Address:</label></td>
+        <td><b>{{order.address}}</b></td>
+      </tr>
+      <tr>
+        <td><label>Comment:</label></td>
+        <td><b>{{order.comment}}</b></td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12 col-sm-offset-2">
+    <button type="submit" class="btn btn-success" (click)="btAcceptOnClick()">Accept</button>
+    <button type="submit" class="btn btn-warning" (click)="goBack()">Return</button>
+  </div>
+</div>
